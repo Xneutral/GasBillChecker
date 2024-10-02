@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <TextView
+        android:id="@+id/topBar_tv"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_48sdp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:text="@string/gas_bill_checker"
+        android:paddingHorizontal="@dimen/_24sdp"
+        android:textSize="@dimen/_16ssp"
+        android:gravity="center_vertical|start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
+    <LinearLayout
+        android:id="@+id/gas_company_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginVertical="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_48sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/custom_sbg"
+        app:layout_constraintTop_toBottomOf="@id/topBar_tv"
+        >
+
+        <TextView
+            android:id="@+id/sngpl"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="SNGPL"
+            android:background="@drawable/custom_bg"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/ssgpl"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="SSGPL"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_account_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_32sdp"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:hint="@string/enter_account_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gas_company_ll">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search_bill"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/view_your_bill"
+        android:layout_margin="@dimen/_24sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_account_id"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recent_bills_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/empty_recent_bills_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_48sdp"
+        android:text="@string/no_recent_records_yet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bill"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
